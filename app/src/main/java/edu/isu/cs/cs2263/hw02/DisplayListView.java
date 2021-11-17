@@ -1,7 +1,5 @@
-package edu.isu.cs.cs2263.hw02.views;
+package edu.isu.cs.cs2263.hw02;
 
-import edu.isu.cs.cs2263.hw02.App;
-import edu.isu.cs.cs2263.hw02.data.Course;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;

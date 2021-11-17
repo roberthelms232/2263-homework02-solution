@@ -1,4 +1,4 @@
-package edu.isu.cs.cs2263.hw02.views;
+package edu.isu.cs.cs2263.hw02;
 
 import edu.isu.cs.cs2263.hw02.App;
 import javafx.geometry.Pos;

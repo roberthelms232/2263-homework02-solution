@@ -4,11 +4,6 @@
 package edu.isu.cs.cs2263.hw02;
 
 import com.google.common.collect.Maps;
-import edu.isu.cs.cs2263.hw02.data.Course;
-import edu.isu.cs.cs2263.hw02.views.AppView;
-import edu.isu.cs.cs2263.hw02.views.CoursesFormView;
-import edu.isu.cs.cs2263.hw02.views.DisplayListView;
-import edu.isu.cs.cs2263.hw02.views.WelcomeView;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
