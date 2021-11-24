@@ -10,6 +10,9 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'jacoco'
+    id "io.freefair.lombok" version "6.3.0"
+
 }
 
 repositories {
@@ -19,8 +22,12 @@ repositories {
 }
 
 dependencies {
+    implementation 'junit:junit:4.13.1'
+
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+
+    testImplementation "org.mockito:mockito-core:3.+"
 
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
@@ -33,6 +40,12 @@ dependencies {
     implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:12.1.0'
     implementation 'org.kordamp.ikonli:ikonli-materialdesign2-pack:12.1.0'
     implementation 'org.kordamp.ikonli:ikonli-material2-pack:12.1.0'
+
+
+    //JavaFX testing
+    implementation "org.testfx:testfx-core:4.0.16-alpha"
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    implementation "org.testfx:testfx-junit5:4.0.16-alpha"
 }
 
 application {
@@ -48,4 +61,46 @@ tasks.named('test') {
 javafx {
     version = "17"
     modules = ['javafx.controls']
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+    //reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.85
+            }
+        }
+
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.3
+            }
+        }
+    }
 }
