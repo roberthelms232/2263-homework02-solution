@@ -1,20 +1,20 @@
 package edu.isu.cs.cs2263.hw02;
-import lombok.AccessLevel;
-import lombok.Setter;
-import lombok.Data;
-import lombok.ToString;
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import lombok.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 
-@Data public class Course {
+@Log4j2
+public class Course {
 
     public static final String[] CODES = { "CS", "CHEM", "PHYS", "MATH", "BTNY", "ZOO" };
     public static final String[] DEPTS = { "Computer Science", "Chemistry", "Physics", "Mathematics", "Botany", "Zoology" };
 
-    private int number;
-    private String name;
-    private int credits;
-    private String code;
+
+    @Getter @Setter private int number;
+    @Getter @Setter private String name;
+    @Getter @Setter private int credits;
+    @Getter @Setter private String code;
 
     public Course() {}
 
@@ -23,37 +23,6 @@ import lombok.ToString;
         this.code = code;
         this.number = number;
         this.credits = credits;
-    }
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCredits() {
-        return credits;
-    }
-
-    public void setCredits(int credits) {
-        this.credits = credits;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     @Override

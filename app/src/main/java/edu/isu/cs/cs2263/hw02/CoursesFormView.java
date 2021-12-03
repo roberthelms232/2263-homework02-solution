@@ -13,17 +13,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import lombok.Getter;
+import lombok.Setter;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign2.MaterialDesignP;
 import org.kordamp.ikonli.materialdesign2.MaterialDesignR;
 
 public class CoursesFormView extends AppView {
 
-    private TextField tfName;
+    @Getter @Setter private TextField tfName;
     private Spinner<Integer> spnNumber;
     private Spinner<Integer> spnCredits;
-    private Label lblMessage;
-    private String code;
+    @Getter @Setter private Label lblMessage;
+    @Getter @Setter private String code;
 
     public CoursesFormView(App parent) {
         super(parent);
