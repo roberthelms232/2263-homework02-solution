@@ -1,6 +1,12 @@
 package edu.isu.cs.cs2263.hw02;
+import lombok.AccessLevel;
+import lombok.Setter;
+import lombok.Data;
+import lombok.ToString;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
-public class Course {
+@Data public class Course {
 
     public static final String[] CODES = { "CS", "CHEM", "PHYS", "MATH", "BTNY", "ZOO" };
     public static final String[] DEPTS = { "Computer Science", "Chemistry", "Physics", "Mathematics", "Botany", "Zoology" };
@@ -18,7 +24,6 @@ public class Course {
         this.number = number;
         this.credits = credits;
     }
-
     public int getNumber() {
         return number;
     }
